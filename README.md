@@ -16,7 +16,7 @@ Sql server 2024
 
 ![image](https://github.com/user-attachments/assets/6d8885ec-db1d-4804-b34d-92192c4de4f7)
 
-# Endpoit que permite verificar la disponibilidad de los servicios ya sean generales o de odontologia
+# Endpoint que permite verificar la disponibilidad de los servicios ya sean generales o de odontologia
 ![image](https://github.com/user-attachments/assets/d6365387-7237-4bc9-a638-638f423e3b79)
 
 # Endpoint que permite seleccionar y reservar la cita
