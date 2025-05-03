@@ -1,7 +1,7 @@
 
 # Requerimientos
-Net Core 8.0
-Sql server 2024
+Visual Studio 2022 Net Core 8.0
+Sql server 20.2
 
 # Paquetes Nuget instalados
  <ItemGroup>
