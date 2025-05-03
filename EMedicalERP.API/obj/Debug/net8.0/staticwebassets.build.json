@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "6RSJtFAuBzC0xbo+7lbEgGFR8wDHiCrgO3OH13XBm4w=",
+  "Source": "EMedicalERP.API",
+  "BasePath": "_content/EMedicalERP.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

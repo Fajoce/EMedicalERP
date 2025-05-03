@@ -1,0 +1,60 @@
+[
+  {
+    "ContainingType": "EMedicalERP.API.Controllers.CitasController",
+    "Method": "ListaCitas",
+    "RelativePath": "api/Citas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMedicalERP.API.Controllers.CitasController",
+    "Method": "ObtenerDisponibles",
+    "RelativePath": "api/Citas/disponibles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "especialidad",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMedicalERP.API.Controllers.CitasController",
+    "Method": "Reservar",
+    "RelativePath": "api/Citas/reservar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.API.DTOs.ReservaCitaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMedicalERP.API.Controllers.PacientesController",
+    "Method": "Autenticar",
+    "RelativePath": "api/Pacientes/autenticar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "Application.API.DTOs.PacienteLoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
