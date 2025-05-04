@@ -31,11 +31,11 @@ namespace EMedicalERP.API.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Autenticar([FromBody] PacienteLoginDTO loginDto)
         {
-            var (token, id) = await _pacienteService.AutenticarJwtAsync(loginDto);
+            var (token, id, nombre) = await _pacienteService.AutenticarJwtAsync(loginDto);
             if (token == null)
                 return Unauthorized("Credenciales inválidas");
 
-            return Ok(new { token, pacienteId = id });
+            return Ok(new { token, pacienteId = id, Nombre = nombre });
         }
     }
     #endregion public methods with their documentation 

@@ -44,7 +44,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IPacienteService, PacienteService>();
 builder.Services.AddScoped<ICitaService, CitaService>();
 builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PacienteLoginDTOValidator>());
-builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ReservaCitaDTO>());
+//builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ReservaCitaDTO>());
+//builder.Services.Configure<TwilioSettings>(builder.Configuration.GetSection("Twilio"));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("myPolicies", app =>
+    {
+        app.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -56,7 +64,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("myPolicies");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseMiddleware<ErrorHandlingMiddleware>();

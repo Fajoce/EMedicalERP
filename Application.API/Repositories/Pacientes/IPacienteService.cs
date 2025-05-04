@@ -4,6 +4,6 @@ namespace Application.API.Repositories.Pacientes
 {
     public interface IPacienteService
     {
-        Task<(string Token, int PacienteId)> AutenticarJwtAsync(PacienteLoginDTO loginDto);
+        Task<(string Token, int PacienteId, string PacienteNombre)> AutenticarJwtAsync(PacienteLoginDTO loginDto);
     }
 }

@@ -38,7 +38,7 @@ namespace Application.API.Services
                          where c.estado == "Disponible" && c.especialidad == especialidad
                          select new CitaDisponibleDTO
                          {
-                             // id = c.id,
+                             id = c.id,
                              MedicoId = c.Medico.Id,
                              nombremedico = c.Medico.Nombre,
                              especialidad = c.especialidad,

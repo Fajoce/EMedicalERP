@@ -10,13 +10,13 @@ namespace Application.API.Validations
 {
     public class ReservaCitaDTOValidator: AbstractValidator<ReservaCitaDTO>
     {
-        public ReservaCitaDTOValidator()
-        {
-            RuleFor(x => x.CitaId)
-                .GreaterThan(0).WithMessage("Debe seleccionar una cita válida.");
+        //public ReservaCitaDTOValidator()
+        //{
+        //    RuleFor(x => x.CitaId)
+        //        .GreaterThan(0).WithMessage("Debe seleccionar una cita válida.");
 
-            RuleFor(x => x.PacienteId)
-                .GreaterThan(0).WithMessage("Paciente inválido.");
-        }
+        //    RuleFor(x => x.PacienteId)
+        //        .GreaterThan(0).WithMessage("Paciente inválido.");
+        //}
     }
 }

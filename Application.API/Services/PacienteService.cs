@@ -22,7 +22,7 @@ namespace Application.API.Services
             _context = context ?? throw new ArgumentNullException(nameof(context)); ;
             _config = config ?? throw new ArgumentNullException(nameof(config)); ;
         }
-        public async Task<(string Token, int PacienteId)> AutenticarJwtAsync(PacienteLoginDTO loginDto)
+        public async Task<(string Token, int PacienteId, string PacienteNombre)> AutenticarJwtAsync(PacienteLoginDTO loginDto)
         {
             var paciente = await _context.Paciente.FirstOrDefaultAsync(p =>
                p.Documento == loginDto.Documento &&
@@ -48,7 +48,7 @@ namespace Application.API.Services
                 signingCredentials: creds
             );
 
-            return (new JwtSecurityTokenHandler().WriteToken(token), paciente.Id);
+            return (new JwtSecurityTokenHandler().WriteToken(token), paciente.Id, paciente.Nombres+ ' ' + paciente.Apellidos);
         }
     }
 }
