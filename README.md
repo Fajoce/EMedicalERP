@@ -4,12 +4,11 @@ Visual Studio 2022 Net Core 8.0
 Sql server 20.2
 
 # Paquetes Nuget instalados
- <ItemGroup>
-   <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
-   <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
-   <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
-   <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.9.0" />
- </ItemGroup>
+Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0"
+Microsoft.EntityFrameworkCore" Version="9.0.4" 
+Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4"
+Microsoft.IdentityModel.Tokens" Version="8.9.0" 
+
 
 
 #Inicio de sesion, si el usuario existe se creara un token que le permitira acceder a los diferentes endpoints de la aplicacion
