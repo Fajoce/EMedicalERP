@@ -52,6 +52,25 @@ namespace EMedicalERP.API.Controllers
             return Ok(citas);
         }
         /// <summary>
+        /// Obtiene las  más cercanas disponibles por un id específico.
+        /// </summary>
+        /// <param name="id">Especialidad médica (Ej: 1,2,3,....).</param>
+        /// <returns>Lista de citas disponibles.</returns>
+        /// <response code="200">Devuelve la lista de citas disponibles.</response>
+        /// <response code="400">Si no se especifica la especialidad.</response>
+
+        [HttpGet("BuscarCitaPorId")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ObtenerDisponiblesById([FromQuery] int id)
+        {
+            if (id == 0)
+                return BadRequest("Debe especificar un id");
+
+            var citas = await _citaService.ObtenerCitasDisponiblesPorId(id);
+            return Ok(citas);
+        }
+        /// <summary>
         /// Reserva una cita para un paciente.
         /// </summary>
         /// <param name="dto">Datos de la cita y el paciente.</param>

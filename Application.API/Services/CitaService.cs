@@ -1,7 +1,9 @@
 ﻿using Application.API.DTOs;
 using Application.API.Repositories.Citas;
+using Domain.API.Exceptions;
 using Infraestructure.API.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Application.API.Services
 {
@@ -50,12 +52,43 @@ namespace Application.API.Services
             return await citas;
         }
 
+        public async Task<List<CitaDisponibleDTO>> ObtenerCitasDisponiblesPorId(int id)
+        {
+            var citas = (from c in _context.Cita
+                         where c.estado == "Disponible" && c.id == id
+                         select new CitaDisponibleDTO
+                         {
+                             id = c.id,
+                             MedicoId = c.Medico.Id,
+                             nombremedico = c.Medico.Nombre,
+                             especialidad = c.especialidad,
+                             fechahora = c.fechahora,
+                             estado = c.estado,
+                             PacienteId = c.PacienteId
+
+                         })
+           .OrderBy(c => c.fechahora)
+           .ToListAsync();
+            if (citas is null)
+            {
+                throw new BusinessRuleException("Cita ya esta reservada");
+            }
+            else
+            {
+                return await citas;
+            }
+
+                
+        }
+
         public async Task<bool> ReservarCitaAsync(int citaId, int pacienteId)
         {
             var cita = await _context.Cita.FirstOrDefaultAsync(c => c.id == citaId);
 
-            if (cita == null || cita.estado != "Disponible")
-                return false;
+            if (cita == null )
+                throw new NotFoundException("La cita no existe.");
+            if (cita.estado != "Disponible")
+                throw new BusinessRuleException("La cita ya fue reservada");
 
             cita.estado = "Reservada";
             cita.PacienteId = pacienteId;

@@ -97,3 +97,7 @@ C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\bin\Debug\net8.0\runtimes
 C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\bin\Debug\net8.0\Infraestructure.API.dll
 C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\bin\Debug\net8.0\Infraestructure.API.pdb
+C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\obj\Debug\net8.0\EMedicalERP.API.sourcelink.json

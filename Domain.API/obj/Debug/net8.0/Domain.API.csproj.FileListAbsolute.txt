@@ -9,3 +9,5 @@ C:\Users\USER\source\repos\EMedicalERP\Domain.API\obj\Debug\net8.0\Domain.API.dl
 C:\Users\USER\source\repos\EMedicalERP\Domain.API\obj\Debug\net8.0\refint\Domain.API.dll
 C:\Users\USER\source\repos\EMedicalERP\Domain.API\obj\Debug\net8.0\Domain.API.pdb
 C:\Users\USER\source\repos\EMedicalERP\Domain.API\obj\Debug\net8.0\ref\Domain.API.dll
+C:\Users\USER\source\repos\EMedicalERP\Domain.API\obj\Debug\net8.0\Domain.API.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\EMedicalERP\Domain.API\obj\Debug\net8.0\Domain.API.sourcelink.json

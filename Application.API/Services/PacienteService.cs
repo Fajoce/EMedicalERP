@@ -1,6 +1,7 @@
 ﻿using Application.API.DTOs;
 using Application.API.Repositories.Citas;
 using Application.API.Repositories.Pacientes;
+using Domain.API.Exceptions;
 using Infraestructure.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -28,7 +29,7 @@ namespace Application.API.Services
                p.FechaNacimiento.Date == loginDto.FechaNacimiento.Date);
 
             if (paciente == null)
-                return (null, 0);
+                throw new NotFoundException("No existe este id");
 
             var claims = new[]
             {

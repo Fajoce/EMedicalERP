@@ -1,6 +1,10 @@
+using Application.API.DTOs;
 using Application.API.Repositories.Citas;
 using Application.API.Repositories.Pacientes;
 using Application.API.Services;
+using Application.API.Validations;
+using Domain.API.Middleware;
+using FluentValidation.AspNetCore;
 using Infraestructure.API.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +43,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddScoped<IPacienteService, PacienteService>();
 builder.Services.AddScoped<ICitaService, CitaService>();
+builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PacienteLoginDTOValidator>());
+builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ReservaCitaDTO>());
 
 var app = builder.Build();
 
@@ -53,7 +59,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseMiddleware<ErrorHandlingMiddleware>();
 app.MapControllers();
 
 app.Run();

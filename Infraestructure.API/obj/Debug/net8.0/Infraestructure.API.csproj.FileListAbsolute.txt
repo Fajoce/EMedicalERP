@@ -13,3 +13,4 @@ C:\Users\USER\source\repos\EMedicalERP\Infraestructure.API\obj\Debug\net8.0\ref\
 C:\Users\USER\source\repos\EMedicalERP\Infraestructure.API\bin\Debug\net8.0\Domain.API.dll
 C:\Users\USER\source\repos\EMedicalERP\Infraestructure.API\bin\Debug\net8.0\Domain.API.pdb
 C:\Users\USER\source\repos\EMedicalERP\Infraestructure.API\obj\Debug\net8.0\Infraest.39A0CBB3.Up2Date
+C:\Users\USER\source\repos\EMedicalERP\Infraestructure.API\obj\Debug\net8.0\Infraestructure.API.sourcelink.json
