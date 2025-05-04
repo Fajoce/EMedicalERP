@@ -1,5 +1,5 @@
 ﻿CitasMedicas/
 ├── CitasMedicas.API              → Capa de presentación (Controllers)
-├── CitasMedicas.Application      → Lógica de negocio, servicios, DTOs
-├── CitasMedicas.Domain           → Entidades, interfaces
+├── CitasMedicas.Application      → Lógica de negocio, servicios, DTOs, Validators
+├── CitasMedicas.Domain           → Entidades, interfaces, Exceptions
 ├── CitasMedicas.Infrastructure   → contexto EF
