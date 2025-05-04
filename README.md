@@ -8,6 +8,8 @@ Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0"
 Microsoft.EntityFrameworkCore" Version="9.0.4" 
 Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4"
 Microsoft.IdentityModel.Tokens" Version="8.9.0" 
+FluentValidation.AspNetCore" Version="11.3.0"
+Microsoft.Extensions.Configuration" Version="9.0.4"
 
 
 
