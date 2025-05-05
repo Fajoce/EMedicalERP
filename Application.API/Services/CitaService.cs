@@ -1,4 +1,5 @@
 ﻿using Application.API.DTOs;
+using Application.API.Extension;
 using Application.API.Repositories.Citas;
 using Application.API.Repositories.Correo;
 using Domain.API.Exceptions;
@@ -12,6 +13,7 @@ namespace Application.API.Services
     {
         private readonly AppDbContext _context;
         private readonly ICorreoService _correoService;
+        
 
         public CitaService(AppDbContext context, ICorreoService correoService)
         {
@@ -54,11 +56,12 @@ namespace Application.API.Services
 
             return await citas;
         }
-
+       
         public async Task<List<CitaDisponibleDTO>> ObtenerCitasDisponiblesPorId(int id)
         {
+            var spec = new CitaDisponiblePorIdSpecification(id);
             var citas = (from c in _context.Cita
-                         where c.estado == "Disponible" && c.id == id
+                         .ApplySpecification(spec)
                          select new CitaDisponibleDTO
                          {
                              id = c.id,
