@@ -26,5 +26,9 @@ namespace Domain.API.Patients
         [Column("telefono")]
         [StringLength(20)]
         public string? Telefono { get; set; }
+        [Column("email")]
+        [Required(ErrorMessage = "This field is required")]
+        [StringLength(50)]
+        public string? Email { get; set; }
     }
 }

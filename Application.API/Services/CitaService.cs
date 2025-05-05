@@ -94,6 +94,37 @@ namespace Application.API.Services
             cita.PacienteId = pacienteId;
 
             await _context.SaveChangesAsync();
+            // 📨 Envío de correo en segundo plano
+            _ = Task.Run(async () =>
+            {
+                try
+                {
+                    var paciente = await _context.Paciente.FindAsync(pacienteId);
+                    if (paciente == null || string.IsNullOrWhiteSpace(paciente.Email))
+                        return;
+
+                    var mensaje = new MimeKit.MimeMessage();
+                    mensaje.From.Add(new MimeKit.MailboxAddress("Clínica", "fajoce@gmail.com"));
+                    mensaje.To.Add(new MimeKit.MailboxAddress(paciente.Nombres, paciente.Email));
+                    mensaje.Subject = "Confirmación de Cita Reservada";
+
+                    mensaje.Body = new MimeKit.TextPart("plain")
+                    {
+                        Text = $"Hola {paciente.Nombres},\n\nTu cita ha sido reservada para el {cita.fechahora.ToString("f")} con el Dr./Dra. {cita.Medico.Nombre}.\n\n¡Gracias por confiar en nosotros!"
+                    };
+
+                    using var smtp = new MailKit.Net.Smtp.SmtpClient();
+                    await smtp.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                    await smtp.AuthenticateAsync("fajoce@gmail.com", "N&ck13_2018");
+                    await smtp.SendAsync(mensaje);
+                    await smtp.DisconnectAsync(true);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al enviar correo de confirmación: {ex.Message}");
+                    // Aquí podrías loguear formalmente si usas Serilog, NLog, etc.
+                }
+            });
             return true;
         }
     }
