@@ -11,6 +11,18 @@ Microsoft.IdentityModel.Tokens" Version="8.9.0"
 FluentValidation.AspNetCore" Version="11.3.0"
 Microsoft.Extensions.Configuration" Version="9.0.4"
 
+# Tipo de Arquitectura de la aplicacion
+- Monolitica por N capas
+# Enfoque de diseño
+- DDD Domain Driven Design: Diseño basado en el dominio
+ # patrones de Diseño
+  - Repositorio
+  - Specification
+  - CQRS
+  - Result
+# Lamba Functions
+- Para enviar un correo y un sms al telefono del apciente cuando reserve la cita
+# Principos Solid - Clean Architecture
 
 
 # Inicio de sesion, si el usuario existe se creara un token que le permitira acceder a los diferentes endpoints de la aplicacion
