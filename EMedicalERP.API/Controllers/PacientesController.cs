@@ -49,6 +49,20 @@ namespace EMedicalERP.API.Controllers
 
             return Ok(datos);
         }
+
+        [HttpPost()]
+        public async Task<IActionResult> CreatePatient([FromBody] CreatePacienteDTO paciente)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _pacienteService.CreatePaciente(paciente);
+
+            if (result)
+                return Ok(new { message = "Paciente creado exitosamente." });
+
+            return StatusCode(500, new { message = "Error al crear el paciente." });
+        }
     }
     #endregion public methods with their documentation 
 }

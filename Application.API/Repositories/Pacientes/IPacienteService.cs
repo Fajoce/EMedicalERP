@@ -6,5 +6,6 @@ namespace Application.API.Repositories.Pacientes
     {
         Task<(string Token, int PacienteId, string PacienteNombre)> AutenticarJwtAsync(PacienteLoginDTO loginDto);
         Task <PacienteDTO> VerMisDatos(int id);
+        Task<bool> CreatePaciente(CreatePacienteDTO paciente);
     }
 }

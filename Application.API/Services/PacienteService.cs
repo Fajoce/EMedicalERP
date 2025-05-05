@@ -2,7 +2,9 @@
 using Application.API.Repositories.Citas;
 using Application.API.Repositories.Pacientes;
 using Domain.API.Exceptions;
+using Domain.API.Patients;
 using Infraestructure.API.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -50,6 +52,32 @@ namespace Application.API.Services
 
             return (new JwtSecurityTokenHandler().WriteToken(token), paciente.Id, paciente.Nombres+ ' ' + paciente.Apellidos);
         }
+
+        public async Task<bool> CreatePaciente(CreatePacienteDTO paciente)
+        {
+            try
+            {
+                var pac = new Paciente
+                {
+                    Nombres = paciente.Nombres,
+                    Apellidos = paciente.Apellidos,
+                    Documento = paciente.Documento,
+                    FechaNacimiento = paciente.FechaNacimiento,
+                    Telefono = paciente.Telefono,
+                    Email = paciente.Email
+                };
+
+                _context.Paciente.Add(pac);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                // Puedes loguear el error aquí
+                return false;
+            }
+        }
+        
 
         public async Task<PacienteDTO> VerMisDatos(int id)
         {

@@ -111,6 +111,22 @@
   },
   {
     "ContainingType": "EMedicalERP.API.Controllers.PacientesController",
+    "Method": "CreatePatient",
+    "RelativePath": "api/Pacientes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paciente",
+        "Type": "Application.API.DTOs.CreatePacienteDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EMedicalERP.API.Controllers.PacientesController",
     "Method": "VermisDatos",
     "RelativePath": "api/Pacientes/{id}",
     "HttpMethod": "GET",
