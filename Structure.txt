@@ -1,5 +1,5 @@
 ﻿EMedicalERP/
 ├── EMedicalERP.API                 → Capa de presentación (Controllers)
-├── Application.API                → Lógica de negocio, servicios, DTOs, Validators
+├── Application.API                → Lógica de negocio, servicios, DTOs, Validators, Metodos de Extension
 ├── Domain.API                     → Entidades, interfaces, Exceptions
 ├── Infrastructure.API             → contexto EF

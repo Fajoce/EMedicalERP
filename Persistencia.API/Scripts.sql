@@ -45,6 +45,7 @@ CREATE TABLE [dbo].[Paciente](
 	[documento] [nvarchar](20) NOT NULL,
 	[fechanacimiento] [date] NOT NULL,
 	[telefono] [nvarchar](20) NULL,
+	[email] [nvarchar](50) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

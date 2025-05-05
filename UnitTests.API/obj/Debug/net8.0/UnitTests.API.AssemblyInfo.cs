@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("EMedicalERP.API")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("UnitTests.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f964590fdb88e053663573996c9b0e9f067f325")]
-[assembly: System.Reflection.AssemblyProductAttribute("EMedicalERP.API")]
-[assembly: System.Reflection.AssemblyTitleAttribute("EMedicalERP.API")]
+[assembly: System.Reflection.AssemblyProductAttribute("UnitTests.API")]
+[assembly: System.Reflection.AssemblyTitleAttribute("UnitTests.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
