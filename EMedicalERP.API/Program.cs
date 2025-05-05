@@ -1,5 +1,6 @@
 using Application.API.DTOs;
 using Application.API.Repositories.Citas;
+using Application.API.Repositories.Correo;
 using Application.API.Repositories.Pacientes;
 using Application.API.Services;
 using Application.API.Validations;
@@ -45,7 +46,7 @@ builder.Services.AddScoped<IPacienteService, PacienteService>();
 builder.Services.AddScoped<ICitaService, CitaService>();
 builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PacienteLoginDTOValidator>());
 //builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ReservaCitaDTO>());
-//builder.Services.Configure<TwilioSettings>(builder.Configuration.GetSection("Twilio"));
+builder.Services.AddScoped<ICorreoService, CorreoService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("myPolicies", app =>

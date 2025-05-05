@@ -1,5 +1,6 @@
 ﻿using Application.API.DTOs;
 using Application.API.Repositories.Citas;
+using Application.API.Repositories.Correo;
 using Domain.API.Exceptions;
 using Infraestructure.API.Data;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,12 @@ namespace Application.API.Services
     public class CitaService : ICitaService
     {
         private readonly AppDbContext _context;
+        private readonly ICorreoService _correoService;
 
-        public CitaService(AppDbContext context)
+        public CitaService(AppDbContext context, ICorreoService correoService)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context)); ;
+            _context = context ?? throw new ArgumentNullException(nameof(context)); 
+            _correoService = correoService ?? throw new ArgumentNullException(nameof(context));
         }
         public async Task<List<CitaDisponibleDTO>> listCitasAsync()
         {
@@ -95,35 +98,11 @@ namespace Application.API.Services
 
             await _context.SaveChangesAsync();
             // 📨 Envío de correo en segundo plano
+            // Enviar correo de forma asíncrona sin bloquear la lógica
             _ = Task.Run(async () =>
             {
-                try
-                {
-                    var paciente = await _context.Paciente.FindAsync(pacienteId);
-                    if (paciente == null || string.IsNullOrWhiteSpace(paciente.Email))
-                        return;
-
-                    var mensaje = new MimeKit.MimeMessage();
-                    mensaje.From.Add(new MimeKit.MailboxAddress("Clínica", "fajoce@gmail.com"));
-                    mensaje.To.Add(new MimeKit.MailboxAddress(paciente.Nombres, paciente.Email));
-                    mensaje.Subject = "Confirmación de Cita Reservada";
-
-                    mensaje.Body = new MimeKit.TextPart("plain")
-                    {
-                        Text = $"Hola {paciente.Nombres},\n\nTu cita ha sido reservada para el {cita.fechahora.ToString("f")} con el Dr./Dra. {cita.Medico.Nombre}.\n\n¡Gracias por confiar en nosotros!"
-                    };
-
-                    using var smtp = new MailKit.Net.Smtp.SmtpClient();
-                    await smtp.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                    await smtp.AuthenticateAsync("fajoce@gmail.com", "N&ck13_2018");
-                    await smtp.SendAsync(mensaje);
-                    await smtp.DisconnectAsync(true);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error al enviar correo de confirmación: {ex.Message}");
-                    // Aquí podrías loguear formalmente si usas Serilog, NLog, etc.
-                }
+                var paciente = await _context.Paciente.FindAsync(pacienteId);
+                await _correoService.EnviarConfirmacionCitaAsync(paciente, cita);
             });
             return true;
         }
