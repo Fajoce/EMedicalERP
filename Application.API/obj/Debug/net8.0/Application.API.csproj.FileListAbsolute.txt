@@ -1,9 +1,3 @@
-C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.csproj.AssemblyReference.cache
-C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.AssemblyInfoInputs.cache
-C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.AssemblyInfo.cs
-C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.csproj.CoreCompileInputs.cache
-C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.sourcelink.json
 C:\Users\USER\source\repos\EMedicalERP\Application.API\bin\Debug\net8.0\Application.API.deps.json
 C:\Users\USER\source\repos\EMedicalERP\Application.API\bin\Debug\net8.0\Application.API.dll
 C:\Users\USER\source\repos\EMedicalERP\Application.API\bin\Debug\net8.0\Application.API.pdb
@@ -11,6 +5,12 @@ C:\Users\USER\source\repos\EMedicalERP\Application.API\bin\Debug\net8.0\Domain.A
 C:\Users\USER\source\repos\EMedicalERP\Application.API\bin\Debug\net8.0\Infraestructure.API.dll
 C:\Users\USER\source\repos\EMedicalERP\Application.API\bin\Debug\net8.0\Domain.API.pdb
 C:\Users\USER\source\repos\EMedicalERP\Application.API\bin\Debug\net8.0\Infraestructure.API.pdb
+C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.AssemblyInfo.cs
+C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.sourcelink.json
 C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Applicat.A02B94F3.Up2Date
 C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\Application.API.dll
 C:\Users\USER\source\repos\EMedicalERP\Application.API\obj\Debug\net8.0\refint\Application.API.dll
