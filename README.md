@@ -35,5 +35,9 @@ Microsoft.Extensions.Configuration" Version="9.0.4"
 # Endpoint que permite seleccionar y reservar la cita
 ![image](https://github.com/user-attachments/assets/901d8beb-df19-4e7b-86fe-be09e6b55120)
 
+# Endpoint que permite buscar la cita por Id de la cita
+![image](https://github.com/user-attachments/assets/6b85c32e-426b-4f69-abd8-8fc9b6729ab8)
+
+
 
 
