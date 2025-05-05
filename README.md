@@ -15,13 +15,13 @@ Microsoft.Extensions.Configuration" Version="9.0.4"
 - Monolitica por N capas
 # Enfoque de diseño
 - DDD Domain Driven Design: Diseño basado en el dominio
- # patrones de Diseño
+# Patrones de Diseño
   - Repositorio
   - Specification
   - CQRS
   - Result
 # Lamba Functions
-- Para enviar un correo y un sms al telefono del apciente cuando reserve la cita
+- Para enviar un correo y un sms al telefono del paciente cuando reserve la cita
 # Principos Solid - Clean Architecture
 
 
