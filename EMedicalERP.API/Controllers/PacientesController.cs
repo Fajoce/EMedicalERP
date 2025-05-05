@@ -37,6 +37,18 @@ namespace EMedicalERP.API.Controllers
 
             return Ok(new { token, pacienteId = id, Nombre = nombre });
         }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<IActionResult> VermisDatos(int id)
+        {
+            var datos= await _pacienteService.VerMisDatos(id);
+            if (datos == null)
+                return Unauthorized("Credenciales inválidas");
+
+            return Ok(datos);
+        }
     }
     #endregion public methods with their documentation 
 }

@@ -109,5 +109,28 @@ namespace Application.API.Services
             });
             return true;
         }
+
+        public async Task<List<CitasReservadas>> VerMisCitasPorPacienteID(int pacienteId)
+        {
+            var citas = (from c in _context.Cita
+                         where c.estado == "Reservada" && c.PacienteId == pacienteId
+                         select new CitasReservadas
+                         {
+                             id = c.id,
+                             MedicoId = c.Medico.Id,
+                             nombremedico = c.Medico.Nombre,
+                             especialidad = c.especialidad,
+                             fechahora = c.fechahora,
+                             estado = c.estado,
+                             PacienteId = c.PacienteId,
+                             Patologia = "cefalacea",
+                             Tratamiento = "Ubuproxeno 500 mg"
+                         })
+          .OrderBy(c => c.fechahora)
+          .Take(3)
+          .ToListAsync();
+
+            return await citas;
+        }
     }
 }

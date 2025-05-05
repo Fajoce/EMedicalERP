@@ -87,6 +87,17 @@ namespace EMedicalERP.API.Controllers
 
             return Ok("Cita reservada correctamente.");
         }
+
+        [HttpGet("MisCitas/{pacienteId}")]
+        public async Task<IActionResult> VerMisCitasPorPacienteId(int pacienteId)
+        {
+            var resultado = await _citaService.VerMisCitasPorPacienteID(pacienteId);
+
+            if (resultado is null)
+                return BadRequest("No ha tenido citas aun");
+
+            return Ok(resultado);
+        }
     }
     #endregion public methods with their documentation
 }

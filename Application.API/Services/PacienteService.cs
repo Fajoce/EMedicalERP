@@ -50,6 +50,23 @@ namespace Application.API.Services
 
             return (new JwtSecurityTokenHandler().WriteToken(token), paciente.Id, paciente.Nombres+ ' ' + paciente.Apellidos);
         }
+
+        public async Task<PacienteDTO> VerMisDatos(int id)
+        {
+            var datos = from p in _context.Paciente
+                        where p.Id == id
+                                            select new PacienteDTO
+                                            {
+                                                Id = p.Id,
+                                                Nombres = p.Nombres,
+                                                Documento = p.Documento,
+                                                FechaNacimiento = p.FechaNacimiento,
+                                                Apellidos = p.Apellidos,
+                                                Telefono = p.Telefono,
+                                                Email = p.Email
+                                            };
+            return await datos.FirstOrDefaultAsync();
+        }
     }
 }
   
