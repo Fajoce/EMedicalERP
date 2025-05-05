@@ -48,7 +48,8 @@ namespace Application.API.Services
                              nombremedico = c.Medico.Nombre,
                              especialidad = c.especialidad,
                              fechahora = c.fechahora,
-                             estado = c.estado
+                             estado = c.estado,
+                             noConsultorio = c.Noconsultorio
                          })
            .OrderBy(c => c.fechahora)
            .Take(5)

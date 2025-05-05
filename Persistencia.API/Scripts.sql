@@ -12,6 +12,7 @@ CREATE TABLE [dbo].[Cita](
 	[estado] [varchar](50) NULL,
 	[MedicoId] [int] NULL,
 	[PacienteId] [int] NULL,
+	[noConsultorio] [varchar] (3) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id] ASC

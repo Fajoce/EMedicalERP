@@ -14,6 +14,7 @@ namespace Application.API.DTOs
         public int MedicoId { get; set; }      
         
         public int? PacienteId { get; set; }
+        public string? noConsultorio { get; set; }
 
     }
 }

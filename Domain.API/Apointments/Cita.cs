@@ -28,5 +28,8 @@ namespace Domain.API.Apointments
         
         public int? PacienteId { get; set; } 
         public Paciente Paciente { get; set; }
+        [Column("noConsultorio")]
+        [StringLength(3)]
+        public string Noconsultorio { get; set; }
     }
 }
