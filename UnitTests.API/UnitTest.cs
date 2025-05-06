@@ -1,6 +1,8 @@
 ﻿using Application.API.DTOs;
+using Application.API.Features.Queries;
 using Application.API.Repositories.Citas;
 using EMedicalERP.API.Controllers;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;
@@ -13,48 +15,92 @@ namespace UnitTests.API
 {
    public  class UnitTest
     {
-        //[Fact]
-        //public async Task ObtenerDisponibles_DeberiaRetornarBadRequest_SiEspecialidadEsNula()
-        //{
-        //    // Arrange
-        //    var mockService = new Mock<ICitaService>();
-        //    var controller = new CitasController(mockService.Object);
+        private readonly Mock<ICitaService> _citaServiceMock;
+        private readonly Mock<ISender> _senderMock;
+        private readonly CitasController _controller;
 
-        //    // Act
-        //    var resultado = await controller.ObtenerDisponibles(null);
+        public UnitTest()
+        {
+            _citaServiceMock = new Mock<ICitaService>();
+            _senderMock = new Mock<ISender>();
+            _controller = new CitasController(_citaServiceMock.Object, _senderMock.Object);
+        }
 
-        //    // Assert
-        //    var badRequest = Assert.IsType<BadRequestObjectResult>(resultado);
-        //    Assert.Equal("Debe especificar una especialidad", badRequest.Value);
-        //}
+        [Fact]
+        public async Task ObtenerDisponibles_SinEspecialidad_BadRequest()
+        {
+            // Act
+            var result = await _controller.ObtenerDisponibles(null);
 
-        //[Fact]
-        //public async Task ObtenerDisponibles_DeberiaRetornarOkConCitas_SiEspecialidadEsValida()
-        //{
-        //    // Arrange
-        //    var mockService = new Mock<ICitaService>();
-        //    var especialidad = "Examen general";
+            // Assert
+            var badRequest = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("Debe especificar una especialidad", badRequest.Value);
+        }
 
-        //    var citasFake = new List<CitaDisponibleDTO>
-        //{
-        //    new CitaDisponibleDTO { id = 1, especialidad = especialidad },
-        //    new CitaDisponibleDTO { id = 2, especialidad = especialidad }
-        //};
+        [Fact]
+        public async Task ObtenerDisponibles_ConEspecialidad_OkResult()
+        {
+            // Arrange
+            var citas = new List<CitaDisponibleDTO> { new CitaDisponibleDTO() };
+            _citaServiceMock.Setup(s => s.ObtenerCitasDisponiblesAsync("Medicina general")).ReturnsAsync(citas);
 
-        //    mockService
-        //        .Setup(service => service.ObtenerCitasDisponiblesAsync(especialidad))
-        //        .ReturnsAsync(citasFake);
+            // Act
+            var result = await _controller.ObtenerDisponibles("Medicina general");
 
-        //    var controller = new CitasController(mockService.Object);
+            // Assert
+            var ok = Assert.IsType<OkObjectResult>(result);
+            Assert.Equal(citas, ok.Value);
+        }
 
-        //    // Act
-        //    var resultado = await controller.ObtenerDisponibles(especialidad);
+        [Fact]
+        public async Task ListaCitas_OkResult()
+        {
+            // Arrange
+            var citas = new List<CitaDisponibleDTO> { new CitaDisponibleDTO() };
+            _citaServiceMock.Setup(s => s.listCitasAsync()).ReturnsAsync(citas);
 
-        //    // Assert
-        //    var okResult = Assert.IsType<OkObjectResult>(resultado);
-        //    var citas = Assert.IsType<List<CitaDisponibleDTO>>(okResult.Value);
-        //    Assert.Equal(2, citas.Count);
-        //}
+            // Act
+            var result = await _controller.ListaCitas();
+
+            // Assert
+            var ok = Assert.IsType<OkObjectResult>(result);
+            Assert.Equal(citas, ok.Value);
+        }
+
+        [Fact]
+        public async Task ObtenerDisponiblesById_SinId_BadRequest()
+        {
+            var result = await _controller.ObtenerDisponiblesById(0);
+
+            var badRequest = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("Debe especificar un id", badRequest.Value);
+        }
+
+        
+
+        [Fact]
+        public async Task Reservar_CitaYaReservada_BadRequest()
+        {
+            var dto = new ReservaCitaDTO { CitaId = 1, PacienteId = 2 };
+            _citaServiceMock.Setup(s => s.ReservarCitaAsync(dto.CitaId, dto.PacienteId)).ReturnsAsync(false);
+
+            var result = await _controller.Reservar(dto);
+
+            var badRequest = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Contains("ya ha sido reservada", badRequest.Value!.ToString());
+        }
+
+        [Fact]
+        public async Task Reservar_CitaExitosa_OkResult()
+        {
+            var dto = new ReservaCitaDTO { CitaId = 2, PacienteId = 2 };
+            _citaServiceMock.Setup(s => s.ReservarCitaAsync(dto.CitaId, dto.PacienteId)).ReturnsAsync(true);
+
+            var result = await _controller.Reservar(dto);
+
+            var ok = Assert.IsType<OkObjectResult>(result);
+            Assert.Contains("Cita reservada correctamente", ok.Value!.ToString());
+        }          
     }
 }
 

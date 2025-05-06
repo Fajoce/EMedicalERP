@@ -89,7 +89,7 @@ namespace EMedicalERP.API.Controllers
             if (!resultado)
                 return BadRequest(Result<string>.Failure("La cita ya ha sido reservada o no existe."));
 
-            return Ok(Result<string>.Success("Cita reservada correctamente."));
+            return Ok(Result<string>.Success("Cita reservada correctamente"));
         }
 
         [HttpGet("MisCitas/{pacienteId}")]
