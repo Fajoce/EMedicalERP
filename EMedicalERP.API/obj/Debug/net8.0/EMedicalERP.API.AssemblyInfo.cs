@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EMedicalERP.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c518c680056554cc91e2df7cab266e129c9817c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8135cdf94dd1c22e5a6595369c1b7ecc14d9b341")]
 [assembly: System.Reflection.AssemblyProductAttribute("EMedicalERP.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EMedicalERP.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,12 @@
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\bin\Debug\net8.0\Persistencia.API.deps.json
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\bin\Debug\net8.0\Persistencia.API.dll
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\bin\Debug\net8.0\Persistencia.API.pdb
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\obj\Debug\net8.0\Persistencia.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\obj\Debug\net8.0\Persistencia.API.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\obj\Debug\net8.0\Persistencia.API.AssemblyInfo.cs
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\obj\Debug\net8.0\Persistencia.API.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\obj\Debug\net8.0\Persistencia.API.sourcelink.json
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\obj\Debug\net8.0\Persistencia.API.dll
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\obj\Debug\net8.0\refint\Persistencia.API.dll
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\obj\Debug\net8.0\Persistencia.API.pdb
+C:\Users\USER\source\repos\EMedicalERP\Persistencia.API\obj\Debug\net8.0\ref\Persistencia.API.dll
