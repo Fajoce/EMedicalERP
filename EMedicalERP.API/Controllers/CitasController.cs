@@ -1,4 +1,5 @@
-﻿using Application.API.DTOs;
+﻿using Application.API;
+using Application.API.DTOs;
 using Application.API.Features.Queries;
 using Application.API.Repositories.Citas;
 using MediatR;
@@ -86,9 +87,9 @@ namespace EMedicalERP.API.Controllers
             var resultado = await _citaService.ReservarCitaAsync(dto.CitaId, dto.PacienteId);
 
             if (!resultado)
-                return BadRequest("La cita ya ha sido reservada o no existe.");
+                return BadRequest(Result<string>.Failure("La cita ya ha sido reservada o no existe."));
 
-            return Ok("Cita reservada correctamente.");
+            return Ok(Result<string>.Success("Cita reservada correctamente."));
         }
 
         [HttpGet("MisCitas/{pacienteId}")]
