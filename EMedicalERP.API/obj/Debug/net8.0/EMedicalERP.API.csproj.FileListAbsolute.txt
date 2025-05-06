@@ -108,3 +108,5 @@ C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\obj\Debug\net8.0\refint\E
 C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\obj\Debug\net8.0\EMedicalERP.API.pdb
 C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\obj\Debug\net8.0\EMedicalERP.API.genruntimeconfig.cache
 C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\obj\Debug\net8.0\ref\EMedicalERP.API.dll
+C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\bin\Debug\net8.0\MediatR.dll
+C:\Users\USER\source\repos\EMedicalERP\EMedicalERP.API\bin\Debug\net8.0\MediatR.Contracts.dll

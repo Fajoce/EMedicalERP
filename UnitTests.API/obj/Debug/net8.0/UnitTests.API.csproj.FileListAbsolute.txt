@@ -190,3 +190,5 @@ C:\Users\USER\source\repos\EMedicalERP\UnitTests.API\obj\Debug\net8.0\refint\Uni
 C:\Users\USER\source\repos\EMedicalERP\UnitTests.API\obj\Debug\net8.0\UnitTests.API.pdb
 C:\Users\USER\source\repos\EMedicalERP\UnitTests.API\obj\Debug\net8.0\UnitTests.API.genruntimeconfig.cache
 C:\Users\USER\source\repos\EMedicalERP\UnitTests.API\obj\Debug\net8.0\ref\UnitTests.API.dll
+C:\Users\USER\source\repos\EMedicalERP\UnitTests.API\bin\Debug\net8.0\MediatR.dll
+C:\Users\USER\source\repos\EMedicalERP\UnitTests.API\bin\Debug\net8.0\MediatR.Contracts.dll

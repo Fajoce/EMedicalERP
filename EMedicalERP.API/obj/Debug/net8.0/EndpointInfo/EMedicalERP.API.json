@@ -58,7 +58,7 @@
         }
       }
     },
-    "/api/Citas/BuscarCitaPorId": {
+    "/api/Citas/BuscarCitaDisponiblesPorId": {
       "get": {
         "tags": [
           "Citas"

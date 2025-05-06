@@ -58,7 +58,7 @@ namespace Application.API.Services
             return await citas;
         }
        
-        public async Task<List<CitaDisponibleDTO>> ObtenerCitasDisponiblesPorId(int id)
+        public async Task<CitaDisponibleDTO> ObtenerCitasDisponiblesPorId(int id)
         {
             var spec = new CitaDisponiblePorIdSpecification(id);
             var citas = (from c in _context.Cita
@@ -73,9 +73,8 @@ namespace Application.API.Services
                              estado = c.estado,
                              PacienteId = c.PacienteId
 
-                         })
-           .OrderBy(c => c.fechahora)
-           .ToListAsync();
+                         }).FirstOrDefaultAsync();
+           
             if (citas is null)
             {
                 throw new BusinessRuleException("Cita ya esta reservada");

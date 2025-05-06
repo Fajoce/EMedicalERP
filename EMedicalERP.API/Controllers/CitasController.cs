@@ -1,5 +1,7 @@
 ﻿using Application.API.DTOs;
+using Application.API.Features.Queries;
 using Application.API.Repositories.Citas;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EMedicalERP.API.Controllers
@@ -11,10 +13,12 @@ namespace EMedicalERP.API.Controllers
     public class CitasController : ControllerBase
     {
         private readonly ICitaService _citaService;
+        private readonly ISender _sender;
 
-        public CitasController(ICitaService citaService)
+        public CitasController(ICitaService citaService, ISender sender)
         {
-            _citaService = citaService ?? throw new ArgumentNullException(nameof(citaService)); ;
+            _citaService = citaService ?? throw new ArgumentNullException(nameof(citaService)); 
+            _sender = sender ?? throw new ArgumentNullException(nameof(citaService));
         }
         #endregion constructor and properties
 
@@ -59,16 +63,15 @@ namespace EMedicalERP.API.Controllers
         /// <response code="200">Devuelve la lista de citas disponibles.</response>
         /// <response code="400">Si no se especifica la especialidad.</response>
 
-        [HttpGet("BuscarCitaPorId")]
+        [HttpGet("BuscarCitaDisponiblesPorId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> ObtenerDisponiblesById([FromQuery] int id)
         {
             if (id == 0)
                 return BadRequest("Debe especificar un id");
-
-            var citas = await _citaService.ObtenerCitasDisponiblesPorId(id);
-            return Ok(citas);
+            var response = await _sender.Send(new GetObtenerCitasDisponiblesPorId(id));
+            return Ok(response);
         }
         /// <summary>
         /// Reserva una cita para un paciente.

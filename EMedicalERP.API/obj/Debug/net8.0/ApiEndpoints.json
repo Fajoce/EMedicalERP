@@ -18,7 +18,7 @@
   {
     "ContainingType": "EMedicalERP.API.Controllers.CitasController",
     "Method": "ObtenerDisponiblesById",
-    "RelativePath": "api/Citas/BuscarCitaPorId",
+    "RelativePath": "api/Citas/BuscarCitaDisponiblesPorId",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
