@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.API.Features.Queries
 {
-    public record GetObtenerCitasDisponiblesPorId(int id): IRequest<CitaDisponibleDTO>
+    public record GetObtenerCitasDisponiblesPorIdQuery(int id): IRequest<CitaDisponibleDTO>
     {
     }
 }

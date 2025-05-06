@@ -70,7 +70,7 @@ namespace EMedicalERP.API.Controllers
         {
             if (id == 0)
                 return BadRequest("Debe especificar un id");
-            var response = await _sender.Send(new GetObtenerCitasDisponiblesPorId(id));
+            var response = await _sender.Send(new GetObtenerCitasDisponiblesPorIdQuery(id));
             return Ok(response);
         }
         /// <summary>

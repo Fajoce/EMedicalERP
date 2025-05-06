@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.API.Features.Queries
 {
-    public class GetObtenerCitasDisponiblesPorIdHandler : IRequestHandler<GetObtenerCitasDisponiblesPorId, CitaDisponibleDTO>
+    public class GetObtenerCitasDisponiblesPorIdHandler : IRequestHandler<GetObtenerCitasDisponiblesPorIdQuery, CitaDisponibleDTO>
     {
         public readonly ICitaService _service;
 
@@ -19,7 +19,7 @@ namespace Application.API.Features.Queries
             _service = service;
         }
 
-        public async Task<CitaDisponibleDTO> Handle(GetObtenerCitasDisponiblesPorId request, CancellationToken cancellationToken)
+        public async Task<CitaDisponibleDTO> Handle(GetObtenerCitasDisponiblesPorIdQuery request, CancellationToken cancellationToken)
         {
             return await _service.ObtenerCitasDisponiblesPorId(request.id);
         }
