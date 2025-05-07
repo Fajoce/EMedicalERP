@@ -55,15 +55,15 @@ builder.Services.AddDependencies();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddScoped<IPacienteService, PacienteService>();
+//builder.Services.AddScoped<IPacienteService, PacienteService>();
 
-builder.Services.AddScoped<ICitaService, CitaService>();
+//builder.Services.AddScoped<ICitaService, CitaService>();
 
-builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PacienteLoginDTOValidator>());
+//builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PacienteLoginDTOValidator>());
 
-builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ReservaCitaDTO>());
+//builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ReservaCitaDTO>());
 
-builder.Services.AddScoped<ICorreoService, CorreoService>();
+//builder.Services.AddScoped<ICorreoService, CorreoService>();
 
 builder.Services.AddCors(options =>
 {
