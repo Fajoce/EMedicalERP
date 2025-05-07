@@ -119,7 +119,7 @@
     "Parameters": [
       {
         "Name": "paciente",
-        "Type": "Application.API.DTOs.CreatePacienteDTO",
+        "Type": "Application.API.Features.Commands.CreatePacienteCommand",
         "IsRequired": true
       }
     ],

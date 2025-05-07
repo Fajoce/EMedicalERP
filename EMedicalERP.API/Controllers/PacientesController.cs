@@ -1,6 +1,9 @@
 ﻿using Application.API.DTOs;
+using Application.API.Features.Commands;
 using Application.API.Repositories.Pacientes;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace EMedicalERP.API.Controllers
 {
@@ -11,10 +14,12 @@ namespace EMedicalERP.API.Controllers
     public class PacientesController : ControllerBase
     {
         private readonly IPacienteService _pacienteService;
+        private readonly ISender _sender;
 
-        public PacientesController(IPacienteService pacienteService)
+        public PacientesController(IPacienteService pacienteService, ISender sender)
         {
-            _pacienteService = pacienteService ?? throw new ArgumentNullException(nameof(pacienteService)); ;
+            _pacienteService = pacienteService ?? throw new ArgumentNullException(nameof(pacienteService));
+            _sender = sender;
         }
         #endregion constructor and properties
 
@@ -51,17 +56,17 @@ namespace EMedicalERP.API.Controllers
         }
 
         [HttpPost()]
-        public async Task<IActionResult> CreatePatient([FromBody] CreatePacienteDTO paciente)
+        public async Task<IActionResult> CreatePatient([FromBody] CreatePacienteCommand paciente)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _pacienteService.CreatePaciente(paciente);
+            var result = await _sender.Send(paciente);
 
-            if (result)
-                return Ok(new { message = "Paciente creado exitosamente." });
+            //if (!result)
+            //    return StatusCode(500, "Error al crear el paciente.");
 
-            return StatusCode(500, new { message = "Error al crear el paciente." });
+            return Ok(new { message = "Paciente creado correctamente." });
         }
     }
     #endregion public methods with their documentation 

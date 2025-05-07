@@ -257,17 +257,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreatePacienteDTO"
+                "$ref": "#/components/schemas/CreatePacienteCommand"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreatePacienteDTO"
+                "$ref": "#/components/schemas/CreatePacienteCommand"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreatePacienteDTO"
+                "$ref": "#/components/schemas/CreatePacienteCommand"
               }
             }
           }
@@ -282,7 +282,7 @@
   },
   "components": {
     "schemas": {
-      "CreatePacienteDTO": {
+      "CreatePacienteCommand": {
         "type": "object",
         "properties": {
           "nombres": {
