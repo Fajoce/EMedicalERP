@@ -25,7 +25,13 @@ namespace EMedicalERP.API.IOD
             services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PacienteLoginDTOValidator>());
 
             services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ReservaCitaDTO>());
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("myPolicies", app =>
+                {
+                    app.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
+            });
             services.AddScoped<ICorreoService, CorreoService>();
             return services;
         }

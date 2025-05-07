@@ -65,13 +65,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 //builder.Services.AddScoped<ICorreoService, CorreoService>();
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("myPolicies", app =>
-    {
-        app.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-    });
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("myPolicies", app =>
+//    {
+//        app.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+//    });
+//});
 
 var app = builder.Build();
 
